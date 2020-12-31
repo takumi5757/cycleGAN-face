@@ -301,7 +301,7 @@ def main():
 
             current_batch = epoch * len(train_loader) + i
             sys.stdout.write(
-                f"\r[Epoch {epoch+1}/200] [Index {i}/{len(train_loader)}] [D_A loss: {loss_D_A.item():.4f}] [D_B loss: {loss_D_B.item():.4f}] [G loss: adv: {loss_G.item():.4f}] [lr: {scheduler_G.get_lr()}]"
+                f"\r[Epoch {epoch+1}/{total_epoch}] [Index {i}/{len(train_loader)}] [D_A loss: {loss_D_A.item():.4f}] [D_B loss: {loss_D_B.item():.4f}] [G loss: adv: {loss_G.item():.4f}] [lr: {scheduler_G.get_lr()}]"
             )
 
         # get tensorboard logs
@@ -318,7 +318,7 @@ def main():
         writer.add_scalar("learning_rate_D_A", np.array(scheduler_D_A.get_lr()), epoch)
         writer.add_scalar("learning_rate_D_B", np.array(scheduler_D_B.get_lr()), epoch)
         sys.stdout.write(
-            f"[Epoch {epoch+1}/200] [D_A loss: {losses[4]/float(len(train_loader)):.4f}] [D_B loss: {losses[5]/float(len(train_loader)):.4f}] [G adv loss: adv: {losses[0]/float(len(train_loader))+losses[1]/float(len(train_loader)):.4f}]"
+            f"[Epoch {epoch+1}/{total_epoch}] [D_A loss: {losses[4]/float(len(train_loader)):.4f}] [D_B loss: {losses[5]/float(len(train_loader)):.4f}] [G adv loss: adv: {losses[0]/float(len(train_loader))+losses[1]/float(len(train_loader)):.4f}]"
         )
 
         # update learning rate
