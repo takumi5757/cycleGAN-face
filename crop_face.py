@@ -3,6 +3,7 @@ import cv2
 import os
 import glob
 import shutil
+import argparse
 
 
 def set_images(in_dir):
@@ -60,8 +61,20 @@ def crop_face(img_list, out_dir):
 
 
 if __name__ == "__main__":
-    in_dir = "./data/japanese_men/"
-    out_dir = "./data/face_data/"
+    """
+    in_dir = "./data/input/"
+    out_dir = "./data/face/"
+    """
+    parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
+    parser.add_argument("-i", "--in_dir", help="input_dir", type=str, required=True)
+    parser.add_argument("-o", "--out_dir", help="output_dir", type=str, required=True)
+
+    args = parser.parse_args()
+
+    in_dir = args.in_dir
+    out_dir = args.out_dir
+
+    os.makedirs(out_dir, exist_ok=True)
 
     img_list = set_images(in_dir)
 

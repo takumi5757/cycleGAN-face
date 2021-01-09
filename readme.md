@@ -24,3 +24,13 @@ data - horse2zebra - trainA
 * sampleに指定イテレーション毎に変換例が格納されます．
 * modelsにモデルが保存されます．
 * identity mapping lossを用いる場合は，実行オプションで"--lambda_identity"を指定してください．
+
+# 画像の取得と顔の切り出し
+
+```
+python collect_image.py -t インディアンス -n 100 -d ./data/indians_comedian
+```
+
+```
+python crop_face.py -i ./data/indians_comedian/ -o ./data/indians_comedian/face/
+```
