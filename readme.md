@@ -6,16 +6,13 @@ https://qiita.com/raglag/items/cfbe89b87335237c5ff2
 
 
 # 実行方法
-1. 
-data - dataset - trainA
-                - trainB
-                - testA
-                - testB
+
 ```
-2. python train.py -g 0 -m "model_name"
+ python train.py -g 0 -m "model_name"
 ```
+
 ```
-3. python test.py -g 0 -m "model_name"
+ python test.py -g 0 -m "model_name"
 ```
 
 # その他
